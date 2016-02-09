@@ -1,11 +1,18 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
+import java.util.Collection;
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+
+
 
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
@@ -17,24 +24,32 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 public class BookKeeperTest {
 
 	private BookKeeper bk;
-
+		
 	@Test
 	public void test() {
 		
 		InvoiceFactory invoiceFactory = new InvoiceFactory();
 		bk = new BookKeeper(invoiceFactory);
 		Invoice invoice;
-		InvoiceRequest mockInvoiceRequest = Mockito.mock(InvoiceRequest.class); 
 		TaxPolicy mockTaxPolicy = Mockito.mock(TaxPolicy.class);
-		InvoiceLine mockInvoiceLine = Mockito.mock(InvoiceLine.class);
-		InvoiceRequest mockInvoiceRequest = mockito.mock
+		InvoiceRequest mockInvoiceRequest = Mockito.mock(InvoiceRequest.class);
+		ProductData mocProductData = Mockito.mock(ProductData.class);
+		//when(mockProductData.getProductData()).thenReturn(1, 1.0, "pierwszyprodukt", "typ", 01-01-2015);
+		Collection<RequestItem> kolekcja = new <RequestItem>();
+		(mocProductData, 2, 2.0);
+		when(mockInvoiceRequest.getItems()).thenReturn(kolekcja);
+		
+		
+		
 		
 		
 				
 				
 				
 		invoice = bk.issuance(mockInvoiceRequest, mockTaxPolicy);
+		//Assert
 		System.out.print(invoice.getGros());	
+		
 		
 		
 		

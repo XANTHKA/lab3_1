@@ -32,7 +32,7 @@ public class BookKeeper {
 					net);
 
 			InvoiceLine invoiceLine = new InvoiceLine(item.getProductData(),
-					item.getQuantity(), net, tax);
+				item.getQuantity(), net, tax);
 			invoice.addItem(invoiceLine);
 		}
 
